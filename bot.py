@@ -87,7 +87,7 @@ async def fcast(_, m : Message):
     deactivated = 0
     blocked = 0
     for usrs in allusers.find():
-        try
+        try:
             userid = usrs["user_id"]
             #print(int(userid))
             if m.command[0] == "fbroadcast":
