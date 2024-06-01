@@ -25,7 +25,7 @@ async def approval(app: Client, m: ChatJoinRequest):
         add_group(cht.id)
         await app.approve_chat_join_request(cht.id, usr.id)
         gif = random.choice(welcome)
-        await app.send_animation(chat_id=usr.id, animation=gif, caption=f"Hey There {usr.first_name}\nWelcome To {cht.title}\n\n{usr.first_name} Your Request To Join {cht.title} Has Been Accepted By {app.me.first_name}")
+        await app.send_animation(chat_id=usr.id, animation=gif, caption=f"ʜᴇʏ ᴛʜᴇʀᴇ {usr.first_name}\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {cht.title}\n\n{usr.first_name} ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {cht.title} ʜᴀs ʙᴇᴇɴ ᴀᴄᴄᴇᴘᴛᴇᴅ ʙʏ {app.me.first_name}")
         add_user(usr.id)
     except (UserIsBlocked, PeerIdInvalid):
         pass
@@ -39,23 +39,23 @@ async def start(app: Client, msg: Message):
         try:
             await app.get_chat_member(chat_id=config.CHANNEL, user_id=msg.from_user.id)
             add_user(msg.from_user.id)
-            await msg.reply_photo(photo="https://telegra.ph/file/f394c45e5f2f147a37090.jpg", caption=f"Hᴇʟʟᴏ {msg.from_user.mention}💞,\n\n☉︎ Tʜɪs ɪs {app.me.mention},\n\n➲ A ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ.\n\n➲ Jᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs/ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs..",
+            await msg.reply_photo(photo="https://telegra.ph/file/f394c45e5f2f147a37090.jpg", caption=f"ʜᴇʟʟᴏ {msg.from_user.mention},\n\n☉︎ ᴛʜɪs ɪs {app.me.mention},\n\n➲ ᴀ ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs.\n\n➲ ᴊᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs..",
                                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"ᴀᴅᴅ {app.me.first_name}", url=f"https://t.me/{app.me.username}?startgroup=true")], [InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{config.CHANNEL}")]]))
         except UserNotParticipant:
-            await msg.reply_text(text=f"To Use {app.me.mention}, You Must Subscribe To {(await app.get_chat(config.CHANNEL)).title}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join", url=f"https://t.me/{config.CHANNEL}")], [InlineKeyboardButton ("Joined ✅", url=f"https://t.me/{app.me.username}?start=start")]]))
+            await msg.reply_text(text=f"To Use {app.me.mention}, ʏᴏᴜ ᴍᴜsᴛ sᴜʙsᴄʀɪʙᴇ ᴛᴏ {(await app.get_chat(config.CHANNEL)).title}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🍁 ᴊᴏɪɴ 🍁", url=f"https://t.me/{config.CHANNEL}")], [InlineKeyboardButton ("**ᴊᴏɪɴᴇᴅ** ❄️", url=f"https://t.me/{app.me.username}?start=start")]]))
         except ChatAdminRequired:
-            await app.send_message(text=f"I'm not admin in fsub chat, Ending fsub...", chat_id=config.OWNER_ID)
+            await app.send_message(text=f"ɪ'ᴍ ɴᴏᴛ ᴀᴅᴍɪɴ ɪɴ ғsᴜʙ ᴄʜᴀᴛ , ᴇɴᴅɪɴɢ ғsᴜʙ......", chat_id=config.OWNER_ID)
     else:
         await msg.reply_photo(
             photo="https://telegra.ph/file/f394c45e5f2f147a37090.jpg",
-            caption=f"Hᴇʟʟᴏ {msg.from_user.mention}💞,\n\n☉︎ Tʜɪs ɪs {app.me.mention},\n\n➲ A ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ.\n\n➲ Jᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs/ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs.",
+            caption=f"ʜᴇʟʟᴏ {msg.from_user.mention},\n\n☉︎ ᴛʜɪs ɪs {app.me.mention},\n\n➲ ᴀ ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄʜᴀɴɴᴇʟ.\n\n➲ ᴊᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs ᴏʀ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(f"ᴀᴅᴅ {app.me.first_name}", url=f"https://t.me/{app.me.username}?startgroup=true")
+                        InlineKeyboardButton(f"🍁 ᴀᴅᴅ {app.me.first_name}", url=f"https://t.me/{app.me.username}?startgroup=true")
                     ],
                     [
-                        InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/ZenBotX")
+                        InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ ❄️", url=f"https://t.me/Infinity_Backup")
                     ],
                 ]
             )
@@ -68,26 +68,26 @@ async def start(app: Client, msg: Message):
 async def gc(app: Client, msg: Message):
     add_group(msg.chat.id)
     add_user(msg.from_user.id)
-    await msg.reply_text(text=f"{msg.from_user.mention} Start Me In Private For More Info..", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Me In Private", url=f"https://t.me/{app.me.username}?start=start")]]))
+    await msg.reply_text(text=f"{msg.from_user.mention} sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ...", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🍁 sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ 🌸", url=f"https://t.me/{app.me.username}?start=start")]]))
 
 #stats
 @app.on_message(filters.command("stats") & filters.user(config.OWNER_ID))
 async def dbtool(app: Client, m: Message):
     xx = all_users()
     x = all_groups()
-    await m.reply_text(text=f"Stats for {app.me.mention}\n🙋‍♂️ Users : {xx}\n👥 Groups : {x}")
+    await m.reply_text(text=f"Stats for {app.me.mention}\n🙋‍♂️ **ᴜsᴇʀs :** {xx}\n👥 **ᴄʜᴀᴛs :** {x}")
 
 #Broadcast
 @app.on_message(filters.command("fbroadcast") & filters.user(config.OWNER_ID))
 async def fcast(_, m : Message):
     allusers = users
-    lel = await m.reply_text("`⚡️ Processing...`")
+    lel = await m.reply_text("`⚡️ ᴘʀᴏᴄᴇssɪɴɢ.....`")
     success = 0
     failed = 0
     deactivated = 0
     blocked = 0
     for usrs in allusers.find():
-        try:
+        try
             userid = usrs["user_id"]
             #print(int(userid))
             if m.command[0] == "fbroadcast":
@@ -106,7 +106,7 @@ async def fcast(_, m : Message):
             print(e)
             failed +=1
 
-    await lel.edit(f"✅Successful Broadcast to {success} users.\n❌ Failed to {failed} users.\n👾 Found {blocked} Blocked users \n👻 Found {deactivated} Deactivated users.")
+    await lel.edit(f"**✅ sᴜᴄᴄᴇssғᴜʟ ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴏ {success} ᴜsᴇʀs.\n❌ ғᴀɪʟᴇᴅ ᴛᴏ {failed} ᴜsᴇʀs.\n👾 ғᴏᴜɴᴅ {blocked} ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs. \n👻 ғᴏᴜɴᴅ {deactivated} ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇᴅ ᴜsᴇʀs.**")
     
 
 
