@@ -26,7 +26,7 @@ async def approval(app: Client, m: ChatJoinRequest):
         add_group(cht.id)
         await app.approve_chat_join_request(cht.id, usr.id)
         gif = random.choice(welcome)
-        await app.send_animation(chat_id=usr.id, animation=gif, caption=f"ʜᴇʏ ! ᴛʜᴇʀᴇ {usr.first_name}\n➜ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {cht.title}\n\n{usr.first_name} ➜ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {cht.title} ʜᴀs ʙᴇᴇɴ ᴀᴄᴄᴇᴘᴛᴇᴅ ʙʏ {app.me.first_name}")
+        await app.send_animation(chat_id=usr.id, animation=gif, caption=f"𝖧𝖾𝗒 ! 𝖳𝗁𝖾𝗋𝖾 {usr.first_name}\n➜ 𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝖳𝗈 {cht.title}\n\n{usr.first_name} ➜ 𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖳𝗈 𝖩𝗈𝗂𝗇 {cht.title} 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝖼𝖼𝖾𝗉𝗍𝖾𝖽 𝖡𝗒 {app.me.first_name}")
         add_user(usr.id)
     except (UserIsBlocked, PeerIdInvalid):
         pass
@@ -40,7 +40,7 @@ async def start(app: Client, msg: Message):
         try:
             await app.get_chat_member(chat_id=config.CHANNEL, user_id=msg.from_user.id)
             add_user(msg.from_user.id)
-            await msg.reply_photo(photo="https://te.legra.ph/file/1fcd06207db4d991af38b.jpg", caption=f"ʜᴇʟʟᴏ {msg.from_user.mention},\n\n☉︎ ᴛʜɪs ɪs {app.me.mention},\n\n➲ ᴀ ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs.\n\n➲ ᴊᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs..",
+            await msg.reply_photo(photo="https://graph.org/file/71a7a627703bdd66fce9b-979259fdebf0b3c196.jpg", caption=f"ʜᴇʟʟᴏ {msg.from_user.mention},\n\n☉︎ ᴛʜɪs ɪs {app.me.mention},\n\n➲ ᴀ ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴍᴀᴅᴇ ғᴏʀ ᴀᴜᴛᴏ ᴀᴘᴘʀᴏᴠɪɴɢ ᴊᴏɪɴ ʀᴇǫᴜᴇsᴛ ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs.\n\n➲ ᴊᴜsᴛ ᴀᴅᴅ {app.me.mention} ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ʀɪɢʜᴛs..",
                                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"ᴀᴅᴅ {app.me.first_name}", url=f"https://t.me/{app.me.username}?startgroup=true")], [InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{config.CHANNEL}")]]))
         except UserNotParticipant:
             await msg.reply_text(text=f"➜ ᴛᴏ ᴜsᴇ {app.me.mention} ʙᴏᴛ , ʏᴏᴜ ᴍᴜsᴛ sᴜʙsᴄʀɪʙᴇ ᴛᴏ {(await app.get_chat(config.CHANNEL)).title}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❄️ ᴊᴏɪɴ ", url=f"https://t.me/{config.CHANNEL}")], [InlineKeyboardButton ("ᴊᴏɪɴᴇᴅ ❄️", url=f"https://t.me/{app.me.username}?start=start")]]))
