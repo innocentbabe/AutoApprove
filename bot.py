@@ -10,11 +10,11 @@ from database import add_user, add_group, all_users, all_groups, users, remove_u
 app = Client("Auto Approve Bot", api_id=config.API_ID, api_hash=config.API_HASH, bot_token=config.BOT_TOKEN)
 
 welcome=[
-    "https://te.legra.ph/file/56ad0cd25443fbba2b931.mp4",
-    "https://te.legra.ph/file/dfbd34a9607b1e30b1e7f.mp4",
-    "https://te.legra.ph/file/b2ced42696e5a3e2cecfd.mp4",
-    "https://te.legra.ph/file/14a5169274a0e709c8213.mp4",
-    "https://te.legra.ph/file/79843576cfc427a0c53fe.mp4",
+    "https://envs.sh/A3c.mp4",
+    "https://envs.sh/A3Z.mp4",
+    "https://envs.sh/A3L.mp4",
+    "https://envs.sh/A35.mp4",
+    "https://envs.sh/A3G.mp4",
 ]
 
 #approve 
